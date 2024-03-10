@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ФИКТ</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+	<h1 id="h_1">jsObject type: </h1>
+	<h1 id="h_2">jsonObject type: </h1>
+	<h1 id="h_3">jsonString type: </h1>
+	<h1 id="h_4">Looping through jsonObject: </h1>
+	<h1 id="h_5">Looping through jsonObject property values: </h1>
+	<h1 id="h_6"></h1>
+	
+	<script>
+	// JavaScript Object
+	var jsObject = {ime:"Петар", prezime:"Петров", indeks:1234};
+	document.getElementById("h_1").innerHTML += typeof jsObject;
+	
+	// Пристап до податоците во JavaScript Object
+	document.getElementById("h_1").innerHTML += " " + jsObject.ime;
+	
+	
+	// JSON Object
+	var jsonObject = {"ime":"Петар", "prezime":"Петров", "indeks":1234};
+	document.getElementById("h_2").innerHTML += typeof jsonObject;
+	//document.getElementById("h_2").innerHTML += " " + jsonObject.prezime;
+	document.getElementById("h_2").innerHTML += " " + jsonObject["prezime"];
+	
+	// JSON String
+	var jsonString = '{"ime":"Петар", "prezime":"Петров", "indeks":1234}';
+	document.getElementById("h_3").innerHTML += typeof jsonString;
+	
+	// Parsing JSON String
+	var parsedJsonString  = JSON.parse(jsonString);
+	document.getElementById("h_3").innerHTML += " " + parsedJsonString.prezime;
+	
+	// Stringify JSON String
+	var stringifiedJsonObject = JSON.stringify(jsonObject);
+	document.getElementById("h_2").innerHTML += " type after stringification " +typeof stringifiedJsonObject;
+	
+	// Loop through jsonObject property names
+	for (x in jsonObject) {
+		document.getElementById("h_4").innerHTML += x;
+	}
+	
+	// Loop through jsonObject property values
+	for (y in jsonObject) {
+		document.getElementById("h_5").innerHTML += jsonObject[y];
+	}
+	
+	var jsonObject2 = {"ime":"Петар", "prezime":"Петров", "indeks":1234, "adresa":{"ulica":"Студентска", "broj":10, "grad":"Битола"}};
+	
+	var jo2_keys = Object.keys(jsonObject2.adresa);
+	document.getElementById("h_6").innerHTML += jo2_keys[2] + " ";
+	document.getElementById("h_6").innerHTML += jsonObject2.adresa.grad;
+	
+	
+	</script>
+</body>
+</html>

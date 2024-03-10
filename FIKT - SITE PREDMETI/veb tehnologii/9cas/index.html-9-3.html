@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+	<h1>Работа со Deno</h1>
+	
+	<h1 id="univerzitet"></h1>
+	
+	<img id="img" src="dinosaur.jpg" onclick="fetch_data()" style="cursor:pointer"/>
+	
+	<a href="vtora.html">VTORA</a>
+	
+<script>
+	async function fetch_data() {
+		let request_url = "/studenti.json";
+		let response = await fetch(request_url);
+		let res_content = await response.text();
+		let json_obj = JSON.parse(res_content);
+		
+		if (response.ok) {
+			document.getElementById("univerzitet").innerHTML = json_obj.univerzitet;
+		}
+		else {
+			alert(response.status);
+		}
+	}
+</script>
+</body>
+</html>
+
+
+

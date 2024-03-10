@@ -1,0 +1,32 @@
+body {margin: 1% 6% 0}
+
+#img, #video {max-width:100%}
+
+#tekst {font-size: 6vw}
+
+.left {background-color:lightgreen}
+.right {background-color:lightblue}
+
+
+.flex-item {
+	padding: 20px 50px;
+	font-size:30px;
+	text-align:center;
+}
+
+@media screen and (min-width:720px) {
+	#tekst {font-size: 4vw}
+	
+	.flex-container {
+	display:flex;
+	flex-direction:row;
+	}
+
+	.flex-item {
+		flex:50%;
+	}
+}
+
+@media screen and (min-width:920px) {
+	#tekst {font-size: 2vw}
+}

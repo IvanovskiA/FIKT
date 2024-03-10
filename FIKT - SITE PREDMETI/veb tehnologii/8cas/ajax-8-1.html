@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>AJAX</title>
+</head>
+<body>
+	<h1 id="id_h1" onmouseover="get_php_data()">Работа со AJAX</h1>
+	
+	<select id="id_semestar" style="width:300px; height:60px" onchange="zemi_predmeti()">
+		<option disabled selected>Избери семестар</option>
+		<option value="1">Зимски</option>
+		<option value="2">Летен</option>
+	</select>
+	
+	<h2 id="predmeti"></h2>
+
+<script>
+function zemi_predmeti() {
+	let sem = document.getElementById("id_semestar").value;
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			document.getElementById("predmeti").innerHTML = this.responseText;
+		}
+	};
+	
+	xhttp.open("GET", "/php_mysql.php?getsemestar=" + sem, true);
+	xhttp.send();
+}
+
+
+function request_data() {
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			document.getElementById("id_h1").innerHTML = this.responseText;
+		}
+	};
+	
+	xhttp.open("GET", "/tekst_primer.txt", true);
+	xhttp.send();
+}
+
+async function fetch_data() {
+	let request_url = "/tekst_primer.txt";
+	let response = await fetch(request_url);
+	let response_content = await response.text();
+	
+	if (response.ok) {
+		document.getElementById("id_h1").innerHTML = response_content;
+	}
+	else {
+		alert(response.status);
+	}
+
+}
+
+function get_php_data() {
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			document.getElementById("id_h1").innerHTML = this.responseText;
+		}
+	};
+	
+	xhttp.open("GET", "/tekst_primer.php", true);
+	xhttp.send();
+}
+</script>
+</body>
+</html>
+
+
+
+

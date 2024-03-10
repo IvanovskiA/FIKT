@@ -1,0 +1,3 @@
+<?php
+
+echo 'Ova e tekst ispraten od PHP skripta!';
