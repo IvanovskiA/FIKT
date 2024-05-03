@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>HTML Multimedia</title>
+	<meta charset="utf-8" />
+</head>
+
+<body>
+	<h1 style="color:blue">Video</h1>
+	<h3>Object (local video)</h3>
+	<object data="video.mp4" width="420" height="300"></object>
+	<br /><br /><br /><br />
+	
+	<h3>Embed (local video)</h3>
+	<embed width="420" height="300" src="video.mp4" />
+	<br /><br /><br /><br />
+	
+	<h3>Комбинација од Object и Embed (local video)</h3>
+	<object data="video.mp4" width="420" height="300">
+		<embed src="video.mp4" width="420" height="300">
+	</object>
+	<br /><br /><br /><br />
+	
+	<h3>iframe (local)</h3>
+	<iframe width="420" height="300" frameborder="0" src="video.mp4"></iframe>
+	<br /><br /><br /><br />
+	
+	<h3>iframe (youtube)</h3>
+	<iframe width="420" height="300" src="http://www.youtube.com/embed/0KSOMA3QBU0" type="video/mp4" frameborder="0" allowfullscreen></iframe>
+	<br /><br /><br /><br />
+	
+	<h3>embed (youtube)</h3>
+	<embed width="420" height="300" src="http://www.youtube.com/v/0KSOMA3QBU0" />
+	<br /><br /><br /><br />
+	
+	<h3>iframe (dailymotion)</h3>
+	<iframe width="420" height="300" frameborder="0" src="https://www.dailymotion.com/embed/video/x88nn2x"></iframe>
+	<br /><br /><br /><br />
+	
+	<h3>embed (dailymotion)</h3>
+	<embed width="420" height="300" src="https://www.dailymotion.com/embed/video/x88nn2x" />
+	<br /><br /><br /><br />
+	
+	<h3>object (youtube)</h3>
+	<object data="http://www.youtube.com/embed/0KSOMA3QBU0" width="420" height="300">
+		<!--<embed src="video.mp4" width="40" height="300">-->
+	</object>
+	<br /><br /><br /><br />
+	
+	<h3>object (dailymotion)</h3>
+	<object data="https://www.dailymotion.com/embed/video/x88nn2x" width="420" height="300">
+		<!--<embed src="video.mp4" width="40" height="300">-->
+	</object>
+	<br /><br /><br /><br />
+	
+	<h3>HTML5 video (local)</h3>
+	<video width="320" height="240" controls>
+		<source src="video.mp4" type="video/mp4">
+		<source src="video.ogv" type="video/ogg">
+		<source src="video.m4v" type="video/mp4">
+	</video>
+	<br /><br /><br /><br />
+</body>
+</html>
