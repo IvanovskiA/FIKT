@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<style>
+		h1 {display: inline-block; padding:10px 20px; background-color:lightgray}
+	</style>
+</head>
+<body>
+    <h1 id="h1" onmouseover="request_data()" >AJAX со XHR и .txt датотека</h1>
+	<br /><br />
+	<h1 id="h2" onmouseover="fetch_data()" >AJAX со FETCH и .txt датотека</h1>
+	<br /><br />
+	<h1 id="h3" onmouseover="json_data()" >Преземање на JSON датотека со XHR</h1>
+	<br /><br />
+	<h1 id="h4" onclick="php_data()" >Преземање на податоци од PHP скрипта со XHR</h1>
+	<br /><br />
+	<h1 id="h5" onclick="php_json()" >Преземање на податоци во JSON формат од PHP скрипта со FETCH</h1>
+	<br /><br />
+	<h1 id="h6" onclick="get_xml()" >AJAX со XHR и XML</h1>
+	<br /><br />
+	<h1 id="h7" onclick="fetch_xml()" >AJAX со FETCH и XML</h1>
+	
+<script>
+function request_data() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("h1").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "tekst.txt", true);
+  xhttp.send();
+}
+
+async function fetch_data() {
+	let request_url = "tekst.txt";
+	let response = await fetch(request_url);
+	let res_content = await response.text();
+	
+	if (response.ok) {
+		document.getElementById("h2").innerHTML =res_content;
+	}
+	else {
+		alert(response.status);
+	} 
+}
+
+function json_data() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+		const json_obj = JSON.parse(this.responseText);
+		document.getElementById("h3").innerHTML = json_obj.fakultet.ime;
+    }
+  };
+  xhttp.open("GET", "studenti.json", true);
+  xhttp.send();
+}
+
+function php_data() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("h4").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "tekst.php", true);
+  xhttp.send();
+}
+
+async function php_json() {
+	let request_url = "json.php";
+	let response = await fetch(request_url);
+	let res_content = await response.text();
+	
+	if (response.ok) {
+		const php_json_obj = JSON.parse(res_content);
+		document.getElementById("h5").innerHTML = php_json_obj.univerzitet;
+		
+	}
+	else {
+		alert(response.status);
+	} 
+}
+
+function get_xml() {
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			document.getElementById("h6").innerHTML = this.responseXML.getElementsByTagName("book")[0].getElementsByTagName("title")[0].childNodes[0].nodeValue;
+		}
+	};
+	xhttp.open("GET", "data.xml", true);
+	xhttp.send();
+}
+
+async function fetch_xml() {
+	let parser, xmlDoc;
+	let request_url = "data.xml";
+	let response = await fetch(request_url);
+	let res_content = await response.text();
+	
+	if (response.ok) {
+		parser = new DOMParser();
+		xmlDoc = parser.parseFromString(res_content,"text/xml");
+		document.getElementById("h7").innerHTML = xmlDoc.getElementsByTagName("book")[1].getElementsByTagName("title")[0].childNodes[0].nodeValue;
+		
+	}
+	else {
+		alert(response.status);
+	}
+}
+</script>
+</body>
+</html>
