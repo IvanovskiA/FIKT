@@ -1,0 +1,186 @@
+-----------------------Odgovori PRV kolokvium:----------------------------------------------
+--1. __Opisi ja sekvencata od mali cekori (prevzemi-dekodiraj-izvrsi) - fetch-decode-execute __ "pri"
+izvrsuvanje na instrukciite.
+Odgovor:
+1. Prezemi ja instrukcijata od memorijata vo instrukciskiot register
+2. Promeni go programskiot brojac, taka sto ke se pokazuva na slednata instrukcija
+3. Opredeli go tipot na tukusto prezemenata instrukcija
+4. Ako instrukcijata koristi zbor od memorijata, opredeli kade se naogja zborot
+5. Ako e potrebno, prezemi go zborot vo eden od registrite
+6. Izvrsi ja instrukcijata
+7. Vrati se na cekor 1 i zapocni so izvrsuvanje na slednata instrukcija
+
+--2. Ako sobiranjeto na dve grupi od po 10 broevi e pretstaveno na ......... ......
+vektorsko pole:
+repeat this loop 10 times
+	read the next instruction and decode it
+	fetch this number
+	fetch that number
+	add them
+	put the result here
+end loop
+Odgovor:
+vektorski procesor:
+
+read instruction and decode it
+fetch these 10 numbers
+fetch those 10 numbers
+add them
+put the results here
+
+3. Pri konstruiranjeto na kod za korekcija na greski, so primena na Hamingoviot algoritam za korekcija na
+16-biten zbor mu se dodavaat 5 bitovi za parnost. __Da se otkrie greskata vo 21-bitniot kodiran zbor
+001011100000101101111 (cekor-po-cekor)
+
+--4. Ako vremeto na pristap do kes memorijata iznesuva 4 ns i ako 3500 od vkupno 4000 mikroinstrukciski
+obrakjanja se realiziraat vo kes memorijata, srednoto vreme na pristap do memoriskiot
+potsistem iznesuva 14 ns. __Da se opredeli vremeto na pristap do glavnata memorija__!
+Odgovor:
+c-vreme na pristap do cache memorijata
+m-vreme na pristap do glavnata memorija
+h-procent od site memoriski obrakjanja koi mozat da bidat realizirani vo kes memorijata
+(hit ratio - intenzitet na pogoduvanje)
+tsr - sredno vreme na pristap
+
+c=4ns
+h=3500/4000
+tsr=14ns
+m=?
+
+tsr=c+(1-h)*m
+14=4+(1-3500/4000)*m
+14=4+(1-0.875)*m
+14=4+0.125*m
+14-4=0.125*m
+10=0.125*m
+m=10/0.125
+m=80
+
+--5. __Sto sodrzi podatocnata pateka__ kaj Mic-1 mikroarhitekturata na IJVM i kako se opredeluva
+__funkcijata__ sto treba da ja izvrsi aritmeticko-logickata edinica?
+Odgovor:
+-Podatocnata pateka gi sodrzi aritmeticko-logickata edinica (ALU), nejzinite vlezovi i izlezi i
+sodrzi odreden broj (32 bitni) registri so soodvetni iminja: PC, SP, MDR...
+-Funkcijata sto treba da izvrsi aritmeticko-logickata edinica se opredeluva so 6 kontrolni linii:
+F0 i F1 - ja opredeluvaat aritmeticko-logickata operacija
+ENA i ENB - gi ovozmozuvaat (enable) leviot i desniot vlez na ALU
+INVA - go invertira leviot vlez
+INC - go inkrementira odnosno zgolemuva za 1 izlezot
+
+odnosno odgovorite se na slikite:
+	-prv kolokvium 5 1.jpg
+	-prv kolokvium 5 2.jpg
+
+--------------------Odgovori VTOR kolokvium:-------------------------------------------------------
+--1. Sto e __n-nasocna ograniceno-asocijativna__ kes memorija i __koj algoritam__ se primenuva za
+za oredeluvanje na kes linijata sto treba da se isfrli pri prevzemanje na nova kes linija od
+glavnata memorija (objasni)?
+Odgovor: Toa e kes memorija so n-mozni pozicii za sekoja adresa, a koga treba da se isfrli nekoja linija 
+za da se donese nova se koristi LRU (Least Recently Used) algoritamot odnosno linijata koja 
+najdolgo vreme ne bila upotrebuvana.
+
+2.
+
+3. Pod pretpostavka deka
+	*Masinata ima __4 registri__ vidlivi za programerot (R0-R3) i dovolen broj registri
+	za preimenuvanje (skrieni registri).
+	*Instrukciite se izdavaat i kompletiraat __VON REDOSLED__ (out-of-order)
+	*Ako instrukcijata se dekodira vo ciklus __n__, izvrsuvanjeto zapocnuva vo ciklus __n+1__
+	zapisuvanjeto na rezultatot vo celniot register nastapuva na krajot na ciklusot
+	__n+2__, a za pokompleksnite instrukcii (na pr. mnozenje ) na krajot na ciklusit __n+3__
+	*Edinicata za dekodiranje moze ad izdava najmnogu __dve instrukcii__ vo eden ciklus.
+__da se popolni scoreboard (tabela na rezultati)__ za slednata sekvenca od instrukcii:
+
+	R2 = R0 - R1
+	R3 = R0 * R1
+	R1 = R0 * R2
+	R1 = R0 + R2
+Odgovor:
+
+--4.  __Kako__ treba da postapi 32-bitna masina ako edna programa cita __4-bajten zbor od adresa 14__ a
+zborovite se podredeni vo sklad so nivnata prirodna dolzina __(aligned)__?
+-Treba da gi prezeme bajtovite od 12-15 i od 16-19 za potoa da gi izdvoi baranite 4 bajtovi 14-15-16-17
+
+--5. Sto e __GARBAGE COLLECTOR__ ?
+Odgovor: E parce softver koe bara objekti na  heap-ot koi poveke ne se vo upotreba, so cel 
+da oslobodi dopolnitelen memoriski prostor(pri pojava na overflow kaj heap-ot).
+
+6. Ako dolzinata na instrukciite e 8 bita, a dolzinata na adresite 2 bita, da se dizajnira __SEMA NA
+KODOVI KOI SE PROSIRUVAAT (EXPANDING OPCODES)__ koja ke ovozmozuva da bidat kodirani
+slednite instrukcii:
+	* 3 tri_adresni instrukcii
+	* 2 dvo-adresni
+	* 7 edno-adresni instrukcii
+	* 4 nula-adresni instrukcii 
+
+--7. Objasni gi razlikite pomegu __REGISTERSKO-INDIREKTNO, INDEKSIRANO i BAZNO-INDEKSIRANO___ adresiranje!
+Odgovor:
+-Registersko indirektno: Operandot se naogja vo memorija, no memoriskata adresa treba da 
+se procita od nekoj register (registerot e pokazuvac)
+
+-Indeksirano:Operandot se naogja vo memorija, no adresata treba da se dobie so sobiranje na dve vrednosti:
+na register i konstanta.
+
+-Bazno-indeksirano: Operandot se naogja vo memorija, no adresata treba da se dobie so sobiranje na 
+dva ili tri vrednosti(register + register + konstanta)
+
+--8. Izrazot (zapisan vo inverzna Polska notacija)
+	A B C D E * F / + G - H / * +
+____da se zapise vo infix__ (iscrtaj ja sostojbata na stekot vo sekoj cekor)!
+Odgovor: slikata "zadaca 8 - polska notacija.jpg"
+
+9--. Objasni kako se realizira ___vlez/izlez so direkten pristap do memorijata___!
+Odgovor: 
+-Po zapisuvanjeto na sekoj bajt, DMA (direct memory access) go inkrementira
+sopstveniot adresen register za 1 i go dekrementira brojacot na bajtovi za 1
+-Ako brojacot e seuste pogolem od 0, se cita sledniot bajt od memorijata i se
+prenesuva do terminalot
+-Koga brojacot e 0, transferot na podatoci zavrsuva i se generira prekin
+
+--10. Sto e __STAPICA__ (trap), a sto __PREKIN__ (interrupt) i koi se __RAZLIKITE__ pomegu niv?
+Odgovor: 
+-Stapica ( trap ) e eden vid avtomatsko povikuvanje na odredena procedura  (trap handler) 
+inicirano od nekoja sostojba predizvikana od programata, a detektirana od hardverot 
+ili mikroprogramata a pak prekin ( interrupt ) e promena na tekot na kontrolata 
+predizvikana ne od programata koja se izvrsuva tuku od drugi pricini (najcesto povrzano 
+so vlezno izlezni operacii). 
+Razlika: stapicite se sinhroni vo programata (predizvikani direktno od nea) pri isti 
+vlezni podatoci sekogas se projavuvaat na isto mesto vo programata a pak prekinite 
+se asinhroni (vo najdobar slucaj indirektno se povikani od programata) nivnoto 
+pojavuvanje varira i moze da zavisi, na primer od toa koga tocno operatorot na 
+terminalot ke pritisne (Enter).
+
+---------------------Odgovori od na Marija tetratkata - vtor kolokvium-------------------------------------------
+User mode - namenet za izvrsuvanje na aplikativnite programi i ne dozvoluva izvrsuvanje na odredeni
+"cuvstvitelni" instrukcii (na primer, instrukcii koi direktno manipuliraat so cache memorijata)
+
+Kernel mode - namenet za izvrsuvanje na operativniot sistem i ovozmozuva izvrsuvanje na SITE instrukcii
+
+Neposredno adresiranje: Namesto adresa, instrukcijata veke go sodrzi operandot.
+
+Direktno adresiranje: Operandot se naogja vo memorijata, a memoriskata adresa e direktno navedena.
+
+Registersko adresiranje: Operandot se naogja vo register, a registerot e direktno naveden.
+
+Koi kriteriumi se primenuvaat pri dizajniranjeto na formatot na instrukcii?
+- Se promenuvaat slednite kriteriumi:
+a) minimiziranje na instrukciite (pomal memoriski prostor, pogolem broj instrukcii vo edinica vreme)
+b) obezbeduvanje dovolno prostor za specificiranje na site mozni operacii vo formatot na instrukcijata
+v) kompromis pomegu dolzinata na osnovnata memoriska edinica i dolzinata na adresite i instrukciite.
+
+Objasni kako se realizira programiran vlez/izlez!
+-Obicno postoi edna vlezna i edna izlezna instrukcija.
+-Sekoja od niv moze da selektira eden od vlezno/izleznite uredi.
+-Eden edinstven znak se prenesuva pomegu odreden register vo procesorot i 
+selektriraniot vlezno/izlezen ured.
+-Procesorot mora da izvrsi sekvenca od instrukcii za sekoj znak sto se cita ili zapisuva.
+
+sto e kes memorija i koi vidovi na lokalnost na memoriski adresi se polzuvaat?
+- Mala i brza memorija vo koja se cuvaat najskoro upotrebuvanite memoriski zborovi, 
+so sto se zabrzuva pristapot do niv. Postojat: 
+a) Prostorna lokalnost -na memoriskite lokacii cii adresi se numericki slicni na memoriskata 
+lokacija kon koja se pristapilo neodamna so golema verojatnost povtorno da im se pristapi vo 
+bliska idnina. 
+b) Vremenska lokalnost- na memoriskite lokacii  kon koi se pristapilo neodamna so golema 
+verojatnost povtorno ke im se pristapi vo bliska idnina.
+

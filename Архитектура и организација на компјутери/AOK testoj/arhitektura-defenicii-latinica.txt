@@ -1,0 +1,152 @@
+--1. Koi tehniki pridonesuvaat za podobruvanje na performancite na procesorot?
+- Toa se: cache ( kes memorija), izvrsuvanje out-of-order (von redosled) so preimenuvanje 
+na registrite, spekulativno izvrsuvanje koe moze da pretskazuva vrednosti i razgranuvanja.
+
+--2. sto e kes memorija i koi vidovi na lokalnost na memoriski adresi se polzuvaat?
+- Mala i brza memorija vo koja se cuvaat najskoro upotrebuvanite memoriski zborovi, 
+so sto se zabrzuva pristapot do niv. Postojat: 
+a) Prostorna lokalnost -na memoriskite lokacii cii adresi se numericki slicni na memoriskata 
+lokacija kon koja se pristapilo neodamna so golema verojatnost povtorno da im se pristapi vo 
+bliska idnina. 
+b) Vremenska lokalnost- na memoriskite lokacii  kon koi se pristapilo neodamna so golema 
+verojatnost povtorno ke im se pristapi vo bliska idnina.
+
+
+--3. Koi kriteriumi se primenuvaat pri dizajniranjeto na formatot na instrukcii?
+- Se promenuvaat slednite kriteriumi:
+a) minimiziranje na instrukciite (pomal memoriski prostor, pogolem broj instrukcii vo edinica vreme)
+b) obezbeduvanje dovolno prostor za specificiranje na site mozni operacii vo formatot na instrukcijata
+v) kompromis pomegu dolzinata na osnovnata memoriska edinica i dolzinata na adresite i instrukciite.
+
+
+--4. sto e DMA kontroler?
+- cip so direkten pristap do magistralata koja ima (najmalku) 4 registri cija sodrzina moze 
+softverski da se menuva:
+a) Memoriska adresa od koja cita ili zapisuva
+b) Broj na bajtovi ili zborovi sto treba da se prenesat
+v) Identifikator na vlezno / izlezniot ured
+g) Vid na operacijata citanje - 0 ili zapisuvanje - 1
+
+
+--5. sto e n-nasocna ograniceno-asocijativna kes-memorija i koj algoritam se primenuva za opredeluvanje 
+na kes-linijata sto treba da se izfrli i prezemanje na nova kes linija od glavnata memorija.
+- Toa e kes memorija so n-mozni pozicii za sekoja adresa, a koga treba da se isfrli nekoja linija 
+za da se donese nova se koristi LRU (Least Recently Used) algoritamot odnosno linijata koja 
+najdolgo vreme ne bila upotrebuvana.
+
+
+--6. Koi nacini na adresiranje postojat?
+a) Neposredno
+b) Direktno
+v) Registarsko
+g) Registarsko - Indirektno
+d) Indeksirano
+g) Bazno -Indeksirano
+e) Stack- adresiranje.
+
+
+7. sto e stapica (trap), a sto prekin (interrupt) i koi se razlikite pomegu niv?
+- Stapica ( trap ) e eden vid avtomatsko povikuvanje na odredena procedura  (trap handler) 
+inicirano od nekoja sostojba predizvikana od programata, a detektirana od hardverot 
+ili mikroprogramata a pak prekin e promena na tekot na kontrolata 
+predizvikana ne od programata koja se izvrsuva tuku od drugi pricini (najcesto povrzano 
+so vlezno izlezni operacii). 
+Razlika: stapicite se sinhroni vo programata (predizvikani direktno od nea) pri isti 
+vlezni podatoci sekogas se projavuvaat na isto mesto vo programata a pak prekinite 
+se asinhroni (vo najdobar slucaj indirektno se povikani od programata) nivnoto 
+pojavuvanje varira i moze da zavisi, na primer od toa koga tocno operatorot na 
+terminalot ke pritisne (Enter).
+
+--8. Koi informacii zaedno go definiraat nivoto na arhitektura na instruciskoto mnozestvo?
+- Slednive informaci: kakov e memoriskiot model, kolku i koj registri se na raspolaganje, 
+koi tipovi na podatoci se na raspolaganje, koj instrukci se na raspolaganje.
+
+
+--9. sto e "garbage collector"?
+- E parce softver koe bara objekti na  heap-ot koi poveke ne se vo upotreba, so cel 
+da oslobodi dopolnitelen memoriski prostor(pri pojava na overflow kaj heap-ot).
+
+--10. Vo kolku i koi kategorii mozat da se podelat instrukciite od nivoto na 
+arhitektura na instrukciskoto mnozestvo?
+- Postojat 6 tipovi na ins mnozestvo i toa: 
+a) Instrukcii za (kopiranje) na podatoci
+b) Dijadni operacii
+v) Monadni operacii
+g) Sporedbi i uslovni razgranuvanja
+d) Instrukcii/za povikuvanje na proceduri
+g) Vlezno izlezni instrukci
+
+--11. Koi vlezno.izlezni semi se koristat kaj personalite kompjuteri?
+a) Programiran vlez/izlez.
+b) Vlez/izlez realiziran so prekini (interrupts).
+v) Vlez/izlez realiziran so direkten pristap vo memorija (DMA).
+
+--12. sto e anti-zavisnost, a sto izlezna zavisnost i kako mozat da se eliminiraat?
+a) antizavisnost- instrukcijata se obiduva da zapise rezultat vo register cija sodrzina 
+seuste ne e procitana od prethodna instrukcija.
+b) izlezna zavisnost- instrukcijata se obiduva da zapise rezultat vo register vo koj 
+zapisuva i nekoja prethodna instrukcija.
+
+--13: sto e Cache memorija?
+E mala brza memorija vo koja se cuvaat najskoro upotrebuvanite memoriski zborovi. 
+Obrakanjata kon memorijata realizirani vo kratok vremenski interval mozat da koristat 
+samo mal del od vremenski interval mozat da koristat samo mal del od memorijata koja 
+e na raspolaganje. Osnovna ideja: Koga ke se pojavi potreba od sekoj memoriski zbor, toj i 
+del od sosednite zborovi se prenesuvaat od  golemata bavna memorija vo kes memorijata i 
+slednite obrakanja ke se realiziraat pobrzo. Logicki, kes memorijata e smestena pomegu 
+procesorot i glavnata memorija, no fizicki ima poveke alternativi.
+
+--14: Koi rezimi za rabota obicno se srekavaat kaj poveketo masini i koi se razlikite pomegu niv?
+-Kaj poveketo masini se srekavaat najmalku dva rezimi na rabota:
+-KERNEL MODE - namenet za izvrsuvanje na operativniot sistem ovozmozuva izvrsuvanje na site instrukcii;
+-USER MODE- namenet za izvrsuvanje na aplikativni programi i ne dozvoluva izvrsuvanje na 
+odredeni "custvitelni" instrukcii.
+
+
+--15: Objasni kako se realizira programiran vlez/izlez!
+-Obicno postoi edna vlezna i edna izlezna instrukcija.
+-Sekoja od niv moze da selektira eden od vlezno/izleznite uredi.
+-Eden edinstven znak se prenesuva pomegu odreden register vo procesorot i 
+selektriraniot vlezno/izlezen ured.
+-Procesorot mora da izvrsi sekvenca od instrukcii za sekoj znak sto se cita ili zapisuva.
+
+--16: Kakva promena vo tekot na kontrolata (control flow) predizvikuvaat procedurite, 
+a kakva korutinite?
+Tekot na kontrolata se odnesuva na redosledot po koj dinamicki se izvrsuvaat instrukciite.
+-Vo otsustvo na razgranuvanje i povikuvanje na proceduri, instrukciite se izvrsuvaat sekcesivno a 
+se prevzemaat od osledovatelnite memoriski adresi.
+-Povikuvanjata na procedurite predizvikuvaat promena na tekot na kontrolata-izvrsuvanjeto na 
+tekovnata procedura zapira, a zapocnuva izvrsuvanjeto na povikanata procedura.
+-Slicni promeni vo tekot na kontrolata predizvikuvaat t.n korutini - pri povtorno 
+povikuvanje na korutinata, izvrsuvanjeto zapocnuva ne od pocetokot tuku od onaa naredba kade 
+sto se zastanalo predhodniot pat.
+-Pri pojava na posebni uslovi , promena na tekot na kontrolata predizvikuvaat i t.n STAPICI I PREKINI.
+
+
+--17: Koi nacini na adresiranje, adresni rezimi postojat?
+-Postojat: 	
+-Neposredno: Avtomatski se prevzema memorija so prevzemanje na samata instrukcija.
+-Direktno: Vo instrukcijata ni se sodrzi adresata na memoriskata lokacija na koja sto se naoga 
+operandot.
+-Registersko: Isto kako kaj direktnoto samo se specifira register namesto memoriska lokacija.
+-Registersko-indeksirano: Adresata na operandot se sodrzi vo nekoj register. Tuka adresata se 
+koristi kako pokazuvac.
+-Indeksirano:Memoriskite lokacii se adresiraat so naveduvanje na register i konstantno relativno 
+pomestuvanje offset.
+-Bazno-indeksirano: Memoriskite adresi se presmetuvaat so sobiranje na dva registri(baza + indeks) 
+i relativnoto pomestuvanje.
+
+
+
+--18:Objasni gi terminite vlez/izlez so direkten pristap do memorijata (DMA)!
+-DMA-kontroler-cip  so direkten pristap do magistralata koj ima (najmalku) 4 registri cija sodrzina 
+moze da se menuva softverski.
+-memoriska adresa od koja se cita i zapisuva.
+-broj na bajtovi sto treba da se prenesat.
+-identifikator na vlezno/izlezniot ured.
+-vid na operacija: citanje ili zapisuvanje.
+PRIMER: Zapisuvanje na blok od 32 bajti vo memoriska adresa 100 na terminal.
+-po zapicuvanje na sekoj bajt, DMA-kontrolerot go inkrementira sopstveniot adresen register za 1 i 
+go dekrementira brojacot na bajtovi za 1.
+-ako brojacot e seuste pogolem od 0, se cita sledniot bajt od memorijata i se prenesuva do terminalot.
+-koga brojacot e 0, transferot na podatoci zavrsuva i se generira prekin.
