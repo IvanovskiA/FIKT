@@ -27,5 +27,5 @@ int main ()
 // nizata pred i po sortiranjeto
 
 // pecati:
-// pocetok... 10 2 11 3 9 1 0 0 0 0
-// kraj... 0 0 0 0 1 2 3 9 10 11
+// pocetok...   10  2   11  3   9   1   0   0   0   0
+// kraj... 0    0   0   0   1   2   3   9   10  11
