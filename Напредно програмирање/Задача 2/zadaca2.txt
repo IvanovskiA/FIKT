@@ -14,6 +14,7 @@ union U{
 int main(){
     cout << sizeof(S) << "\t";
     cout << sizeof(U);
+    return 0;
 }
 
 // ovaj kod demonstrira kako da se presmeta goleminata na strukturata S i unijata U

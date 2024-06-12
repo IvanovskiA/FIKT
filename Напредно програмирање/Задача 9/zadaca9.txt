@@ -1,0 +1,23 @@
+#include<iostream>
+#include<string>
+using namespace std;
+int main()
+{
+    string str = "We think in generalities, but we live in details.";
+    string str1 = str.substr(3,5);
+    size_t pos1 = str.find("think");
+    size_t pos2 = str.find("live");
+    string str2 = str.substr(pos2);
+    cout << str1 << "\tpozicija: " << pos1 << "\n" << str2 << "\tpozicija: " << pos2;
+    return 0;
+}
+
+// Programata deklarira string i gi izveduva slednite operacii:
+// 1. Izvlekuva podstring od pozicija 3 do narednite 5 karakteri
+// 2. Ja naoga pocetnata pozicija na think vo stringot
+// 3. Ja naoga pocetnata pozicija na live vo stringot
+// 4. Izvlekuva podstring od pocetnata pozicija na live do krajot na stringot.
+
+// pecati:
+// think    pozicija: 3
+// live in details. pozicija: 33
