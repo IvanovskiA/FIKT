@@ -20,7 +20,7 @@ int main()
 }
 
 // Ovoj kod kreira dve nizi (first,second) i eden vektor (v).
-// Nizite se sortiraat, a potoa se prebaruvaat zaednickite elementi pomegu nizite
+// Nizite se sortiraat po rastecki redosled, a potoa se prebaruvaat zaednicki elementi pomegu nizite
 // Vkupniot broj na zaednicki elementi se postavuva kako golemina na vektorot koja se pecati
 // Se deklarira iterator so koj shto se pecatat elementite od vektorot
 
