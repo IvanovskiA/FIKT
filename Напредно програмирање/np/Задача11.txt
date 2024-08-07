@@ -1,0 +1,26 @@
+#include <iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+int main(){
+    int first[] = {25,10,15,20,5};
+    int second[] = {50,40,30,20,10};
+    vector<int> v(10);
+    vector<int>::iterator it;
+    it = merge(first,first+5,second,second+5, v.begin());
+    v.resize(it-v.begin());
+    
+    for(it=v.begin(); it!=v.end(); ++it)
+    cout << " " << *it;
+    cout << "\n";
+    return 0;
+}
+
+// Kodot deklarira dve nizi (first,second), eden vektor (v) i iterator (it)
+// Vrshi spojuvanje na dvete nizi i vrednostite gi stava vo vektorot
+// Brojot na elementi go postavuva na promenlivata it koj se minusira so pocetniot indeks na
+// vektorot sto e 0 i go postavuva kako golemina na vektorot
+// So iteratorot se pecatat elementite od vektorot
+
+// pecati:
+// 25 10 15 20 5 50 40 30 20 10

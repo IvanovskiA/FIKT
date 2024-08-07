@@ -1,0 +1,23 @@
+#include<iostream>
+#include<utility>
+#include<string>
+#include<cstdlib>
+using namespace std;
+int main()
+{
+    pair <string,double> product1("domat", 1.30);
+    pair <string,double> product2(product1);
+    // pair <string,double> product2(product1);
+    pair <string,string> product3("jabolko", "ananas");
+    product2.first = product3.second;
+    product3.second = product1.first;
+    cout << product2.first << "\t" << product2.second << "\t";
+    cout << product3.second;
+    return 0;
+}
+
+// Kodot koristi klasa pair od bibliotekata utility za kreiranje i manipuliranje na parovi od
+// razlicni tipovi na podatoci
+
+// pecati:
+// ananas   1.30    domat

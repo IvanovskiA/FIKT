@@ -1,0 +1,31 @@
+#include<iostream>
+#include<algorithm>
+#include<vector>
+using namespace std;
+
+int main()
+{
+    int first[] = {1,2,3,4,5};
+    int second[] = {9,7,5,3,1};
+    vector<int> v(10);
+    vector<int>::iterator it;
+    sort(first, first+5);
+    sort(second,second+5);
+    it = set_difference(first,first+5,second,second+5, v.begin());
+    v.resize(it - v.begin());
+    cout << v.size() << "\t";
+    for(it=v.begin(); it!=v.end(); ++it)
+    cout << *it << " ";
+    cout << endl;
+    return 0;
+}
+
+// Programata deklarira i inicijalizira dve nizi(first,second), vector(v) i iterator(it). Gi sortirata nizite po 
+// rastecki redosled, naoga elementi koi se naogaat vo prvata (first) sortirana niza, no ne i vo
+// vtorata (second) sortirana niza.
+
+// Ja menuva dolzinata na vektorot so brojot na razlicni elementi, ja pecati dolzinata i gi
+// pecati razlicnite elementi
+
+// pecati:
+// 2    2 4 

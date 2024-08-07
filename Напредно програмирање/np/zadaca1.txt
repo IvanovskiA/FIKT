@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+int main () 
+{
+    int i,j,temp,pass = 0;
+    int a[10] = {10,2,11,3,9,1};
+    cout << "pocetok... \t";
+    for(i=0; i<10; i++){
+        cout << a[i] << "\t";
+    }
+    cout << endl;
+    for(i=0; i<10; i++){
+        for(j=i+1; j<10; j++){
+            if(a[j] < a[i]){
+                temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }}}
+    cout << "kraj...\t";
+    for(i=0; i<10; i++){
+        cout << a[i] << "\t";
+    }
+    return 0;
+}
+
+// kodot go izveduva algoritmot selection sort na niza od celi broevi i ja prikazuva
+// nizata pred i po sortiranjeto
+
+// pecati:
+// pocetok...   10  2   11  3   9   1   0   0   0   0
+// kraj... 0    0   0   0   1   2   3   9   10  11

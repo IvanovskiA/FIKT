@@ -1,0 +1,14 @@
+#include<iostream>
+#include<sstream>
+#include<string>
+using namespace std;
+int main()
+{
+    string A = "CD{345";
+    cout << "\n\t";
+    for(char c : A)
+    cout << (char)(c-2);
+    return 0;
+}
+
+// Kodot go prikazuva sekoj znak od stringot A so ASCII vrednost namalena za 2 pozicii.

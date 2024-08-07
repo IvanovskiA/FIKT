@@ -1,0 +1,32 @@
+#include<iostream>
+#include<list>
+#include<string>
+#include<cstdlib>
+using namespace std;
+
+int main()
+{
+    int myints[] = {57,23,28,13,9,11,3,13,7,9,3};
+    // list<int> l1(myints, myints + sizeof(myints) / sizeof(int));
+    list<int> l1(myints+3, myints+8);
+    list<int>::iterator it;
+    l1.sort();
+    // l1.reverse();
+    // l1.unique();
+    
+    for(it=l1.begin(); it!=l1.end(); it++)
+    cout << *it << " ";
+    cout << endl;
+    return 0;
+}
+
+// Programata kreira niza myints so nekolku celi broevi. Potoa, kreira svrzana lista l1 so del
+// od elementite od nizata myints, so pocetna pozicija 3 i zavrshna pozicija 8 (bez 8)
+
+// So koristenje na metodot sort() vrz svrzanata lista l1, elementite vo listata l1 se sortiraat po
+// rastecki redosled
+
+// Se deklarira iterator it so koj sto se pecatat elementite od sortiranata svrzana lista l1
+
+// Pecati: 
+// 3 9 11 13 13

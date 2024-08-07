@@ -1,0 +1,34 @@
+#include<iostream>
+using namespace std;
+
+struct S{
+    char X;
+    int z[4];
+};
+
+union U{
+    char X;
+    int z[4];
+};
+
+int main(){
+    cout << sizeof(S) << "\t";
+    cout << sizeof(U);
+    return 0;
+}
+
+// ovaj kod demonstrira kako da se presmeta goleminata na strukturata S i unijata U
+// koristejki ja funcijata sizeof(). Programata ja presmetuva i ja pecati goleminata na sekoj
+// tip koristejki ja funcijata sizeof().
+
+// struktura S => char X = 1 bajt; 3 bajti za popolnuvanje; po 4 bajti za sekoj clen od nizata
+// struktura S => 1+3+4*4
+// struktura S => 20
+
+// unija U => char X = 1 bajt; po 4 bajti za sekoj clen od nizata
+// unija U => se zema goleminata na najgolemiot tip clen od unijata
+// unija U => 4*4 = 16
+
+// pecati:
+
+// 20   16

@@ -1,0 +1,20 @@
+#include<iostream>
+#include<cstdlib>
+using namespace std;
+int main()
+{
+    long a = 9876543210;
+    long n=0;
+    for(; a>0 ;)
+    {
+        a/=10;
+        n++;
+    }
+    cout << n << "\t\n";
+    return 0;
+}
+
+// Kodot presmetuva kolku cifri ima dadeniot broj a
+
+// pecati:
+// 10
